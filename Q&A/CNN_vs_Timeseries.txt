@@ -1,0 +1,15 @@
+CNNs (Convolutional Neural Networks) can be used on time series data for several reasons:
+
+1. Feature extraction: CNNs excel at automatically learning relevant features from raw data.
+
+2. Local patterns: They can capture local temporal patterns and dependencies in the time series.
+
+3. Translation invariance: CNNs can detect patterns regardless of their position in the sequence.
+
+4. Reduced parameters: Compared to fully connected networks, CNNs have fewer parameters, reducing overfitting risk.
+
+5. Multi-scale analysis: With pooling layers, CNNs can analyze time series at different scales.
+
+6. Parallel processing: CNNs are efficient for parallel computation, speeding up training and inference.
+
+While traditionally used for image processing, CNNs have shown effectiveness in various time series tasks, including classification, forecasting, and anomaly detection.

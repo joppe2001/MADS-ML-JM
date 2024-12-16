@@ -1,0 +1,11 @@
+jax
+fastmath
+torch
+numpy
+pandas
+opencv-python
+torch
+torchvision
+mlflow
+torchsummary
+seaborn

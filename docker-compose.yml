@@ -1,0 +1,35 @@
+services:
+  mlflow:
+    build: .
+    ports:
+      - "5001:5000"
+    environment:
+      - MLFLOW_TRACKING_URI=postgresql://mlflow:mlflow@db/mlflow
+    depends_on:
+      - db
+    volumes:
+      - ./mlflow_artifacts:/mlflow/artifacts
+
+  db:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=mlflow
+      - POSTGRES_PASSWORD=mlflow
+      - POSTGRES_DB=mlflow
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  mads-ml-jm:
+    build:
+      context: .
+      dockerfile: Dockerfile.app
+    volumes:
+      - .:/app
+    depends_on:
+      - mlflow
+    command: python /app/src/main.py
+    shm_size: '14gb'
+
+volumes:
+  postgres_data:
+  mlflow_artifacts:
